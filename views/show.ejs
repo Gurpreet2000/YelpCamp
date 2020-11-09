@@ -6,6 +6,11 @@
 
 <p><%= campground.description %></p>
 
-<a href="/campgrounds">Go Back</a>
+<% campground.comments.forEach((comment) =>{ %>
+<p>
+    <strong><%= comment.author %> </strong> - <%= comment.text %>
+</p>
+<% }) %>
 
+<a href="/campgrounds">Go Back</a>
 <%- include("partials/footer"); %>
