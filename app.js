@@ -1,8 +1,8 @@
-const express = require("express"),
-  app = express(),
-  mongoose = require("mongoose"),
+const mongoose = require("mongoose"),
   passport = require("passport"),
   LocalStrategy = require("passport-local"),
+  express = require("express"),
+  app = express(),
   Campground = require("./models/campground"),
   Comment = require("./models/comment"),
   User = require("./models/user"),
@@ -17,7 +17,7 @@ mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true,
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 console.log(__dirname);
-seedDB();
+//seedDB();
 
 //Passport Config
 app.use(
