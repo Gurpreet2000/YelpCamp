@@ -12,35 +12,41 @@
     </div>
     <div class="col-md-9">
       <div class="card">
-        <img class="card-img-top" src="<%= campground.image %> " alt="" />
+        <img class="card-img-top" src="<%= campground.image %> " alt="<%=campground.name%>" />
         <div class="card-body">
           <h4 class="card-title">
             <a href="/campgrounds/<%= campground._id %>" class="mr-auto"><%=campground.name%></a>
             <span class="float-right">$9.00/night</span>
           </h4>
           <p class="card-text"><%= campground.description %></p>
-          <a href="/campgrounds" class="card-links">
-            <svg
-              width="1em"
-              height="1em"
-              viewBox="0 0 16 16"
-              class="bi bi-caret-left"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 12.796L4.519 8 10 3.204v9.592zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"
-              />
-            </svg>
-            Go Back
-          </a>
+          <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+          <a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-sm btn-outline-warning">Edit</a>
+          <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="post" class="d-inline">
+            <button class="btn btn-sm btn-outline-danger">Delete</button>
+          </form>
+          <% } %>
         </div>
+        <a href="/campgrounds" class="card-links">
+          <svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            class="bi bi-caret-left"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 12.796L4.519 8 10 3.204v9.592zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"
+            />
+          </svg>
+          Go Back
+        </a>
         <div class="card-footer text-muted"><em>Submitted By <%= campground.author.username %></em></div>
       </div>
       <div class="jumbotron mt-4 p-4">
         <div class="text-right">
-          <a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new ">Add New Comment</a>
+          <a class="btn btn-outline-success" href="/campgrounds/<%= campground._id %>/comments/new ">Add New Comment</a>
         </div>
         <hr />
         <% campground.comments.forEach((comment) =>{ %>

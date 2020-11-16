@@ -26,6 +26,7 @@ router.post("/", isLoggedIn, (req, res) => {
           console.log(err);
         } else {
           // add usernmae and id to comment
+          console.log("req.user -> " + req.user);
           comment.author.id = req.user._id;
           comment.author.username = req.user.username;
           //save comment
