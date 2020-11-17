@@ -1,8 +1,11 @@
 # YelpCamp
 
-* Add Landing Page
-* Add Campgrounds Page that lists all campgrounds
+> From Basic Web Development Bootcamp on Udemy
+> By Colt Steel
 
-Each Campground has:
-* Name
-* Image
+To start
+
+```sh
+> sudo services mongodb start
+> node app.js
+```
