@@ -13,21 +13,23 @@ const mongoose = require("mongoose"),
   commentRoutes = require("./routes/comments"),
   indexRoutes = require("./routes/index");
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 mongoose.connect("mongodb://localhost:27017/yelp_camp", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
 });
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
-app.use(flash());
 console.log(__dirname);
 seedDB();
 
-//Passport Config
+//Flash Config
+app.use(flash());
+
+//Exprerss Session Config
 app.use(
   require("express-session")({
     secret: "This is my secret",
@@ -35,6 +37,8 @@ app.use(
     saveUninitialized: false,
   })
 );
+
+//Passport Config
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -43,6 +47,8 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
+  res.locals.error = req.flash("error");
+  res.locals.success = req.flash("success");
   next();
 });
 
