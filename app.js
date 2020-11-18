@@ -25,7 +25,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 console.log(__dirname);
 
-seedDB();
+// seedDB();
 
 //Flash Config
 app.use(flash());

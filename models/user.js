@@ -6,6 +6,10 @@ const mongoose = require("mongoose"),
 UserSchema = new mongoose.Schema({
   username: String,
   passport: String,
+  avatar: String,
+  firstName: String,
+  lastName: String,
+  email: String,
 });
 
 UserSchema.plugin(passportLocalMongoose);

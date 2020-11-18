@@ -21,12 +21,29 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>"
+                            href="/campgrounds">
+                            Home
+                        </a>
+                    </li>
+                </ul>
                 <ul class="navbar-nav ml-auto">
                     <% if( !currentUser){ %>
-                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/register">Sign Up</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"
+                            href="/login">Login</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link <%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"
+                            href="/register">Sign Up</a></li>
                     <% } else { %>
-                    <li class="navbar-text">Signed in as <%= currentUser.username %></li>
+                    <li class="nav-item">
+                        <a class="nav-link <%= typeof page !== 'undefined' && page === currentUser._id.toString() ? 'active' : '' %>"
+                            href="/users/<%= currentUser._id %> ">
+                            Signed in as <%= currentUser.username %>
+                        </a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
                     <% } %>
                 </ul>

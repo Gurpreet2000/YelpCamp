@@ -10,7 +10,7 @@ let data = [
       "https://images.unsplash.com/photo-1533873984035-25970ab07461?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-    author: { id: "5fb27612bd03e1007f7e743f", username: "Harry Potter" },
+    author: { id: "5fb58be88b0fe30174ad1fff", username: "HP" },
   },
   {
     name: "Desert Mesa",
@@ -18,7 +18,7 @@ let data = [
     image: "https://farm6.staticflickr.com/5487/11519019346_f66401b6c1.jpg",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-    author: { id: "5fb27612bd03e1007f7e743f", username: "Harry Potter" },
+    author: { id: "5fb58be88b0fe30174ad1fff", username: "HP" },
   },
   {
     name: "Canyon Floor",
@@ -26,7 +26,7 @@ let data = [
     image: "https://farm1.staticflickr.com/189/493046463_841a18169e.jpg",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-    author: { id: "5fb2a62b3e74e9006e550a0f", username: "Dumbledore" },
+    author: { id: "5fb58c986e33a00189841fe5", username: "Dumbledore" },
   },
 ];
 
