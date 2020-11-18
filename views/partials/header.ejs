@@ -30,6 +30,10 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
+                    <form class="form-inline my-2 my-lg-0" action="/campgrounds" method="GET">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search">
+                        <button class="btn btn-outline-success my-2 my-sm-0 material-icons" type="submit">search</button>
+                    </form>
                     <% if( !currentUser){ %>
                     <li class="nav-item">
                         <a class="nav-link <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"

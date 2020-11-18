@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/stylesheets/landing.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"
         async></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 
 <body>
@@ -34,6 +35,12 @@
     <div id="landing-header">
         <h1>Welcome to YelpCamp!</h1>
         <a href="/campgrounds" class="btn btn-lg btn-success">View All Campgrounds</a>
+        <div>
+            <form class="form-inline m-2 justify-content-center" action="/campgrounds" method="GET">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" />
+                <button class="btn btn-success my-2 my-sm-0 material-icons" type="submit">search</button>
+            </form>
+        </div>
     </div>
 
     <ul class="slideshow">

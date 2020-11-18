@@ -4,14 +4,29 @@ const express = require("express"),
   middleware = require("../middleware");
 
 router.get("/", (req, res) => {
-  Campground.find({}, (err, campgrounds) => {
-    if (err) {
-      console.log(err);
-    } else {
-      //console.log(campgrounds);
-      res.render("campgrounds/index", { campgrounds: campgrounds, page: "campgrounds" });
-    }
-  });
+  if (req.query.search) {
+    const regex = new RegExp(escapeRegex(req.query.search), "gi");
+    Campground.find({ name: regex }, (err, campgrounds) => {
+      if (err) {
+        console.log(err);
+      } else {
+        if (campgrounds.length === 0) {
+          req.flash("error", "No match found");
+        }
+        //console.log(campgrounds);
+        res.render("campgrounds/index", { campgrounds: campgrounds });
+      }
+    });
+  } else {
+    Campground.find({}, (err, campgrounds) => {
+      if (err) {
+        console.log(err);
+      } else {
+        //console.log(campgrounds);
+        res.render("campgrounds/index", { campgrounds: campgrounds, page: "campgrounds" });
+      }
+    });
+  }
 });
 
 router.get("/new", middleware.isLoggedIn, (req, res) => {
@@ -101,5 +116,9 @@ router.delete("/:id", middleware.checkCampgroundOwnership, (req, res) => {
     }
   });
 });
+
+function escapeRegex(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
 
 module.exports = router;
