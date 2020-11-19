@@ -1,3 +1,4 @@
+require("dotenv").config();
 const mongoose = require("mongoose"),
   passport = require("passport"),
   LocalStrategy = require("passport-local"),
@@ -13,13 +14,8 @@ const mongoose = require("mongoose"),
   commentRoutes = require("./routes/comments"),
   indexRoutes = require("./routes/index");
 
-// mongoose.connect("mongodb://localhost:27017/yelp_camp", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   useFindAndModify: false,
-// });
-
-mongoose.connect("mongodb+srv://yelpcamp:database@yelpcamp.njqf6.mongodb.net/yelpcamp?retryWrites=true&w=majority", {
+// console.log(process.env.DATABASEURL);
+mongoose.connect(process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
@@ -29,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
-console.log(__dirname);
+// console.log(__dirname);
 
 // seedDB();
 
